@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class UpdatedDropDown {
 
@@ -19,7 +20,13 @@ public class UpdatedDropDown {
 		driver.findElement(By.id("btnclosepaxoption")).click();
 		String AdultsValueAfter = driver.findElement(By.id("divpaxinfo")).getText();
 
-		System.out.println(AdultsValueBefore+" "+AdultsValueAfter);
+		System.out.println(AdultsValueBefore + " " + AdultsValueAfter);
+
+		Assert.assertEquals(AdultsValueBefore, "1 Adult");
+		Assert.assertEquals(AdultsValueAfter, "3 Adult");
+		
+		
+		Thread.sleep(9000);
 		driver.close();
 
 	}
